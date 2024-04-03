@@ -108,6 +108,9 @@ ro.vendor.pq.mtk_video_transition=0
 ro.vendor.smvr.p2batch.hd=4
 ro.vendor.smvr.p2batch.vga=8
 
+# DRM
+ro.netflix.bsp_rev=MTK6768-19055-1
+
 # FUSE passthrough
 persist.sys.fuse.passthrough.enable=true
 
