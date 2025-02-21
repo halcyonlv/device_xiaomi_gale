@@ -682,8 +682,6 @@ vendor/etc/dsi_panel_c3u_46_0f_0c_dsc_vdo_mi.xml
 
 # Display firmware
 vendor/firmware/omnivision_hdl_firmware.img
-vendor/firmware/mt6631_fm_v1_coeff.bin
-vendor/firmware/mt6631_fm_v1_patch.bin
 vendor/firmware/ovt_tcm_cap_limits.csv
 vendor/firmware/remoteproc_scp
 vendor/firmware/Conf_MultipleTest.ini
@@ -723,6 +721,11 @@ vendor/lib64/libsl_fp_impl.so
 vendor/bin/hw/vendor.silead.hardware.fingerprintext@1.0-service|ba30da3e762e288bc42c1cefb13dca7686812533
 vendor/etc/init/vendor.silead.hardware.fingerprintext@1.0-service.rc|623d401bddcf5f5769b5346644d819b172e3de84
 vendor/lib64/hw/fingerprint.silead.default.so|acdcb8852bf5b519ac555318d713502b317cf12c
+
+# FMRadio
+vendor/firmware/fm_cust.cfg
+vendor/firmware/mt6631_fm_v1_coeff.bin
+vendor/firmware/mt6631_fm_v1_patch.bin
 
 # Fuelgauge
 vendor/bin/fuelgauged
