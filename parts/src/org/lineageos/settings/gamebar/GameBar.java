@@ -60,7 +60,7 @@ public class GameBar {
     }
 
     private static final String FPS_PATH          = "/sys/class/drm/sde-crtc-0/measured_fps";
-    private static final String BATTERY_TEMP_PATH = "/sys/class/power_supply/battery/temp";
+    private static final String BATTERY_TEMP_PATH = "/sys/class/thermal/thermal_zone0/temp";
 
     private static final String PREF_KEY_X = "game_bar_x";
     private static final String PREF_KEY_Y = "game_bar_y";
@@ -347,7 +347,7 @@ public class GameBar {
             if (tmp != null && !tmp.isEmpty()) {
                 try {
                     int raw = Integer.parseInt(tmp.trim());
-                    float c = raw / 10f;
+                    float c = raw / 1000f;
                     batteryTempStr = String.format(Locale.getDefault(), "%.1f", c);
                 } catch (NumberFormatException ignored) {}
             }
