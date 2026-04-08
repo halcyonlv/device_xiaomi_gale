@@ -136,6 +136,9 @@ PRODUCT_PACKAGES += \
     android.hardware.health-service.mediatek \
     android.hardware.health-service.mediatek-recovery
 
+# IMS
+$(call inherit-product, hardware/lineage/compat/frameworks/compat.mk)
+
 # Keymaster
 PRODUCT_PACKAGES += \
     android.hardware.hardware_keystore.km41.xml
