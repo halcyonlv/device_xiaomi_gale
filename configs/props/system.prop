@@ -6,6 +6,7 @@ dalvik.vm.dex2oat-threads=5
 persist.sys.sf.disable_blurs=0
 ro.sf.blurs_are_expensive=0
 ro.surface_flinger.supports_background_blur=1
+ro.surface_flinger.blur_scale=0.015
 
 # Zygote
 zygote.critical_window.minute=10
