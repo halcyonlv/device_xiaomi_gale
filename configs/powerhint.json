@@ -44,9 +44,9 @@
         "900000",
         "850000",
         "774000",
-        "500000",
-        "9999999"
+        "500000"
       ],
+      "DefaultIndex": 15,
       "ResetOnInit": true
     },
     {
@@ -93,9 +93,9 @@
         "1087000",
         "998000",
         "909000",
-        "850000",
-        "9999999"
+        "850000"
       ],
+      "DefaultIndex": 15,
       "ResetOnInit": true
     },
     {
@@ -131,7 +131,7 @@
         "2000",
         "500"
       ],
-      "DefaultIndex": 0,
+      "DefaultIndex": 3,
       "ResetOnInit": true
     },
     {
@@ -143,7 +143,7 @@
         "2000",
         "500"
       ],
-      "DefaultIndex": 0,
+      "DefaultIndex": 3,
       "ResetOnInit": true
     },
     {
@@ -195,16 +195,6 @@
         "1",
         "-1"
       ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "CCIFreqMode",
-      "Path": "/proc/cpufreq/cpufreq_cci_mode",
-      "Values": [
-        "0",
-        "1"
-      ],
-      "DefaultIndex": 0,
       "ResetOnInit": true
     },
     {
@@ -310,12 +300,6 @@
     },
     {
       "PowerHint": "INTERACTION",
-      "Node": "CCIFreqMode",
-      "Duration": 1000,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "INTERACTION",
       "Node": "CPULittleClusterDownRateLimitUs",
       "Duration": 1000,
       "Value": "500"
@@ -345,21 +329,81 @@
       "Value": "25"
     },
     {
+      "PowerHint": "INTERACTION",
+      "Node": "UclampMin",
+      "Duration": 1500,
+      "Value": "50"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Node": "DRAMOppMin",
+      "Duration": 1500,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Node": "GPUSchedPeriod",
+      "Duration": 1500,
+      "Value": "50"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Node": "GPUDVFSInterval",
+      "Duration": 1500,
+      "Value": "50"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Node": "GPUSchedMode",
+      "Duration": 1500,
+      "Value": "1"
+    },
+    {
       "PowerHint": "LAUNCH",
       "Node": "TAUclampMin",
-      "Duration": 2500,
+      "Duration": 5000,
       "Value": "50"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "UclampMin",
-      "Duration": 2500,
+      "Duration": 5000,
       "Value": "100"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "DRAMOppMin",
-      "Duration": 2500,
+      "Duration": 5000,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "CPUBigClusterMinFreq",
+      "Duration": 4000,
+      "Value": "1443000"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "CPULittleClusterMinFreq",
+      "Duration": 4000,
+      "Value": "1275000"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "GPUSchedPeriod",
+      "Duration": 4000,
+      "Value": "50"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "GPUDVFSInterval",
+      "Duration": 4000,
+      "Value": "50"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "GPUSchedMode",
+      "Duration": 4000,
       "Value": "1"
     },
     {
@@ -497,16 +541,7 @@
       "ReportingRateLimitNs": 125000000,
       "TargetTimeFactor": 1.0,
       "StaleTimeFactor": 10.0,
-      "GpuBoost": true,
-      "HeuristicBoost_On": true,
-      "HBoostOnMissedCycles": 10,
-      "HBoostOffMaxAvgRatio": 4.5,
-      "HBoostOffMissedCycles": 6,
-      "HBoostPidPuFactor": 0.3,
-      "HBoostUclampMin": 637,
-      "JankCheckTimeFactor": 1.0,
-      "LowFrameRateThreshold": 20,
-      "MaxRecordsNum": 300
+      "GpuBoost": true
     },
     {
       "Name": "REFRESH_60FPS",
@@ -533,16 +568,7 @@
       "ReportingRateLimitNs": 200000000,
       "TargetTimeFactor": 1.0,
       "StaleTimeFactor": 10.0,
-      "GpuBoost": true,
-      "HeuristicBoost_On": true,
-      "HBoostOnMissedCycles": 10,
-      "HBoostOffMaxAvgRatio": 5.0,
-      "HBoostOffMissedCycles": 6,
-      "HBoostPidPuFactor": 0.3,
-      "HBoostUclampMin": 637,
-      "JankCheckTimeFactor": 1.0,
-      "LowFrameRateThreshold": 20,
-      "MaxRecordsNum": 300
+      "GpuBoost": true
     }
   ]
 }
