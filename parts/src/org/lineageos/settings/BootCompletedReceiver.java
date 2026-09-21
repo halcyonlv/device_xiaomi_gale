@@ -22,9 +22,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import org.lineageos.settings.doze.DozeUtils;
-import org.lineageos.settings.thermal.ThermalUtils;
-
 public class BootCompletedReceiver extends BroadcastReceiver {
     private static final boolean DEBUG = false;
     private static final String TAG = "XiaomiParts";
@@ -61,14 +58,6 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
     private void startServices(Context context) {
         if (DEBUG) Log.i(TAG, "Starting services...");
-
-        // Initialize Doze features
-        DozeUtils.onBootCompleted(context);
-
-        // Start Thermal Management Services
-        ThermalUtils.startService(context);
-
-
     }
 
 }
