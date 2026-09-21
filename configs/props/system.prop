@@ -1,13 +1,11 @@
-# Blur
-ro.surface_flinger.supports_background_blur=1
-
 # dex2oat
 dalvik.vm.dex2oat-cpu-set=2,3,4,5,6
 dalvik.vm.dex2oat-threads=5
 
 # Surface Flinger
-persist.sys.sf.disable_blurs=1
-ro.sf.blurs_are_expensive=1
+persist.sys.sf.disable_blurs=0
+ro.sf.blurs_are_expensive=0
+ro.surface_flinger.supports_background_blur=1
 
 # Zygote
 zygote.critical_window.minute=10
