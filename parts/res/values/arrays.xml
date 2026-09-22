@@ -16,15 +16,6 @@
 -->
 <resources>
     <!-- FPS Overlay -->
-    <string-array name="game_bar_fps_method_entries">
-        <item>New API (Default)</item>
-        <item>Legacy Sysfs</item>
-    </string-array>
-    <string-array name="game_bar_fps_method_values">
-        <item>new</item>
-        <item>legacy</item>
-    </string-array>
-    
     <!-- Update Interval -->
     <string-array name="fps_overlay_update_interval_entries">
         <item>Every 500ms</item>

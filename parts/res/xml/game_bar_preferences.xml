@@ -51,18 +51,6 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="FPS Measurement Method"
-        android:dependency="game_bar_fps_enable">
-        <ListPreference
-            android:key="game_bar_fps_method"
-            android:title="Select FPS Method"
-            android:summary="Choose between the New API method (default) and Legacy Sysfs"
-            android:defaultValue="new"
-            android:entries="@array/game_bar_fps_method_entries"
-            android:entryValues="@array/game_bar_fps_method_values" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
         android:title="Customization"
         android:dependency="game_bar_enable">
 
