@@ -24,9 +24,6 @@ import android.window.TaskFpsCallback;
 
 import androidx.preference.PreferenceManager;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
@@ -72,9 +69,6 @@ public class GameBarFpsMeter {
     }
 
     public void start() {
-        String method = mPrefs.getString("game_bar_fps_method", "new");
-        if (!"new".equals(method)) return;
-
         stop();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -94,8 +88,7 @@ public class GameBarFpsMeter {
     }
 
     public void stop() {
-        String method = mPrefs.getString("game_bar_fps_method", "new");
-        if ("new".equals(method) && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (mCallbackRegistered) {
                 try {
                     mWindowManager.unregisterTaskFpsCallback(mTaskFpsCallback);
@@ -108,26 +101,7 @@ public class GameBarFpsMeter {
     }
 
     public float getFps() {
-        String method = mPrefs.getString("game_bar_fps_method", "new");
-        if ("legacy".equals(method)) {
-            return readLegacyFps();
-        } else {
-            return mCurrentFps;
-        }
-    }
-
-    private float readLegacyFps() {
-        try (BufferedReader br = new BufferedReader(new FileReader("/sys/class/drm/sde-crtc-0/measured_fps"))) {
-            String line = br.readLine();
-            if (line != null && line.startsWith("fps:")) {
-                String[] parts = line.split("\\s+");
-                if (parts.length >= 2) {
-                    return Float.parseFloat(parts[1].trim());
-                }
-            }
-        } catch (IOException | NumberFormatException e) {
-        }
-        return -1f;
+        return mCurrentFps;
     }
 
     private final Runnable mTaskCheckRunnable = new Runnable() {

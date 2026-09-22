@@ -59,7 +59,6 @@ public class GameBar {
         return sInstance;
     }
 
-    private static final String FPS_PATH          = "/sys/class/drm/sde-crtc-0/measured_fps";
     private static final String BATTERY_TEMP_PATH = "/sys/class/thermal/thermal_zone0/temp";
 
     private static final String PREF_KEY_X = "game_bar_x";
