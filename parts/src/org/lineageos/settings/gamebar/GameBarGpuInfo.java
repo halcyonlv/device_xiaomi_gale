@@ -22,18 +22,25 @@ import java.io.IOException;
 
 public class GameBarGpuInfo {
 
-    private static final String GPU_USAGE_PATH = "/sys/class/kgsl/kgsl-3d0/gpu_busy_percentage";
-    private static final String GPU_CLOCK_PATH = "/sys/class/kgsl/kgsl-3d0/gpuclk";
-    private static final String GPU_TEMP_PATH  = "/sys/class/kgsl/kgsl-3d0/temp";
+    private static final String GPU_USAGE_PATH = "/sys/kernel/ged/hal/gpu_utilization";
+    private static final String GPU_CLOCK_PATH = "/sys/kernel/ged/hal/current_freqency";
+    private static final String GPU_TEMP_PATH  = "/sys/class/thermal/thermal_zone1/temp"; // mtktsAP
 
     public static String getGpuUsage() {
         String line = readLine(GPU_USAGE_PATH);
-        if (line == null) {
+        if (line == null || line.trim().isEmpty()) {
             return "N/A";
         }
-        line = line.replace("%", "").trim();
+
+        // Split by whitespace to handle multi-token outputs (e.g., "0 0 100")
+        String[] tokens = line.trim().split("\\s+");
+        if (tokens.length == 0) {
+            return "N/A";
+        }
+
+        String rawVal = tokens[0].replace("%", "").trim();
         try {
-            int val = Integer.parseInt(line);
+            int val = Integer.parseInt(rawVal);
             return String.valueOf(val);
         } catch (NumberFormatException e) {
             return "N/A";
@@ -42,13 +49,27 @@ public class GameBarGpuInfo {
 
     public static String getGpuClock() {
         String line = readLine(GPU_CLOCK_PATH);
-        if (line == null) {
+        if (line == null || line.trim().isEmpty()) {
             return "N/A";
         }
-        line = line.trim();
+
+        String[] tokens = line.trim().split("\\s+");
+        String khzStr = null;
+
+        // Take second token if present ("31 299000"), else fallback to single token ("299000")
+        if (tokens.length >= 2) {
+            khzStr = tokens[1];
+        } else if (tokens.length == 1) {
+            khzStr = tokens[0];
+        }
+
+        if (khzStr == null) {
+            return "N/A";
+        }
+
         try {
-            long hz = Long.parseLong(line);
-            long mhz = hz / 1_000_000;
+            long khz = Long.parseLong(khzStr);
+            long mhz = khz / 1_000;
             return String.valueOf(mhz);
         } catch (NumberFormatException e) {
             return "N/A";
