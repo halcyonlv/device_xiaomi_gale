@@ -786,7 +786,6 @@ vendor/etc/init/microtrust.bp_kmsetkey_ca.rc
 # NetD Agent
 vendor/bin/netdagent
 vendor/etc/init/netdagent.rc
-vendor/lib64/vendor.mediatek.hardware.netdagent@1.0.so
 
 # Tether Offload - from gale-user 15 AP3A.240905.015.A2 OS2.0.6.0.VGPMIXM release-keys
 vendor/bin/hw/tetheroffloadservice|e6e0fb71f6587dea35863ae947cb1a3c2cae38d6
@@ -1030,8 +1029,6 @@ vendor/lib64/libverno.so
 vendor/lib64/libvia-ril.so
 vendor/lib64/libviamipc-ril.so
 vendor/lib64/libwpfa.so
-vendor/lib64/vendor.mediatek.hardware.mtkradioex@2.0.so
-vendor/lib64/vendor.mediatek.hardware.mtkradioex@3.0.so
 
 # Radio (IMS)
 vendor/bin/hw/vtservice_hidl
